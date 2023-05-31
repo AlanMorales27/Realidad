@@ -71,11 +71,7 @@ objLoader.load('models/galery.obj', function(object){
     scene.add(object);
 })
 
-
-
-//Animate Funtion
-function animate() {
-
+function onMauseMove(){
     const intersectObject = raycaster.intersectObject(picture1);
     if (intersectObject.length > 0) {
         picture1.scale.x = 1.5;
@@ -104,6 +100,12 @@ function animate() {
       } else {
         picture4.scale.set(1, 1, 1);
       }
+}
+
+//Animate Funtion
+function animate() {
+
+    
         
   requestAnimationFrame(animate);
 
@@ -111,7 +113,7 @@ function animate() {
   updateRaycaster();
   
   //Move
-  window.addEventListener("keydown", keypress);
+  window.addEventListener("keydown", onMauseMove);
 
   renderer.render(scene, camera);
   //Update Orbit Controls
